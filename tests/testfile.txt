@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+Content-Type: text/html
+
+<html>
+<head>
+<title>Emu: works!</title>
+</head>
+<body>
+<h1>It works</h1>
+<p>Emu is working as intended, nice!</p>
+</body>
+</html>
