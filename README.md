@@ -19,7 +19,7 @@ emulator.phar [config file name] [port number]
 
 Where the config file is the path to the JSON file containing the configuration for the emulator, and the port is the port on which the emulator will listen.
 
-** Config file structure **
+**Config file structure**
 
 Config file will be a JSON Object, it can contain the following parameters:
 
