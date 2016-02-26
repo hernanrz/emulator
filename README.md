@@ -27,6 +27,15 @@ Config file will be a JSON Object, it can contain the following parameters:
 - **data** *string* - If source type is "raw" then the emulator will use the value of this parameter as the response to every request
 - **dataLocation** *string* - Path to the file that will be used to respond to every request (the file's contents will be sent to every request).
 
+Below is a sample config.json file that could be used:
+
+```json
+{
+  "sourceType": "file",
+  "dataLocation": "sample.txt"
+}
+```
+
 Contributing
 ------------
 Take a look at the issues page (open an issue if you have to), make some changes and send a pull request! (Be sure to explain  your changes though)
