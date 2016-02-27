@@ -3,6 +3,7 @@
 namespace DataStream;
 
 require dirname(__DIR__) . '/vendor/autoload.php';
+require 'util.php';
 
 if('Linux' == PHP_OS) {
   echo "☉ ". "\033[34;34mE\033[0m" . "\033[33;33mm\033[0m" . "\033[1;31mu\033[0m";
