@@ -25,7 +25,8 @@ Config file will be a JSON Object, it can contain the following parameters:
 
 - **sourceType** *string* - Possible values: raw, file
 - **data** *string* - If source type is "raw" then the emulator will use the value of this parameter as the response to every request
-- **dataLocation** *string* - Path to the file that will be used to respond to every request (the file's contents will be sent to every request).
+- **dataLocation** *string* or *array* - Path to the file that will be used to respond to every request (the file's contents will be sent to every request). It can also be an array of file paths, the content of the files is concatenated when sending a response.
+
 - **loadOnce** (optional) *boolean* - Default: true - Whether or not source file should be read only when emu is loaded or once every time a request is received
 
 
