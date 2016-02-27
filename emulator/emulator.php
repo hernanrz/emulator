@@ -58,7 +58,7 @@ if(!empty($varDiff)) {
   echo '    Missing variable(s): ' . implode(" ", $varDiff) . PHP_EOL;
 }
 
-$dataSource = new Source;
+$dataSource = new Source($configuration['loadOnce']);
 
 switch ($configuration['sourceType']) {
   case 'raw':
