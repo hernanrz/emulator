@@ -20,6 +20,11 @@ class Source
   */
   public $filePath = null;
   
+  /**
+  * @var array Array of file paths to be read and concatenated
+  */
+  public $filePaths = null;
+  
   function __construct($loadOnce = true)
   {
     $this->loadOnce = $loadOnce;
@@ -30,11 +35,20 @@ class Source
     $this->filePath = $filePath;
     $this->data = file_get_contents($filePath);
   }
+  
+  public function loadFromFiles(array $filePaths)
+  {
+    foreach ($filePaths as $filePath) {
+      $this->data .= file_get_contents($filePath);
+    }
+  }
 
   public function getData()
   {
     if (!$this->loadOnce && $this->filePath) {
       $this->loadFromFile($this->filePath);
+    }elseif (!$this->loadOnce && is_array($this->filePaths)) {
+      $this->loadFromFiles($this->filePaths);
     }
     
     return $this->data;

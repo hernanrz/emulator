@@ -82,14 +82,31 @@ switch ($configuration['sourceType']) {
       exit;
     }
     
-    $configuration['dataLocation'] = __DIR__ . $configuration['dataLocation'];
+    $configuration['dataLocation'] = is_array($configuration['dataLocation']) ? 
+    array_map(function($path) { return __DIR__ . '/' . $path; }, $configuration['dataLocation'])
+    : __DIR__ . '/' . $configuration['dataLocation'];
     
-    if(!file_exists($configuration['dataLocation'])) {
+    // Check if provided file paths exist;
+    if(!is_array($configuration['dataLocation']) && !file_exists($configuration['dataLocation'])) {
       echo '[x] Could not find file '. $configuration['dataLocation'] . PHP_EOL;
       exit;
+      
+    // Location is an array, check if files provided exist
+    }elseif (is_array($configuration['dataLocation'])) {
+      foreach($configuration['dataLocation'] as $location) {
+        if(!file_exists($location)) {
+          error('Could not find file ' . $location);
+          exit;
+        }
+      }
+      
+      $dataSource->loadFromFiles($configuration['dataLocation']);
+      
+    // Location was a string and it exists
+    }else {
+      $dataSource->loadFromFile($configuration['dataLocation']);
     }
     
-    $dataSource->loadFromFile($configuration['dataLocation']);
     break;
   
   default:
