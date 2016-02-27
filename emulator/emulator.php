@@ -43,6 +43,12 @@ $requiredVars = [
   'sourceType',
 ];
 
+$defaultConfig = [
+  'loadOnce' => false
+];
+
+$configuration = array_merge($defaultConfig, $configuration);
+
 $providedVars = array_keys($configuration);
 
 $varDiff = array_diff($requiredVars, $providedVars);
