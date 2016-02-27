@@ -25,11 +25,17 @@ if(count($argv) < 3) {
 $configFileName = __DIR__ . DIRECTORY_SEPARATOR . $argv[1];
 $port = $argv[2];
 
-echo '* Reading configuration file ' . basename($configFileName) . '...';
+echo '* Reading configuration file ' . basename($configFileName) . '...' . PHP_EOL;
 
 if(file_exists($configFileName)) {
   
   $configuration = json_decode(file_get_contents($configFileName), true);
+  
+  if (null === $configuration) {
+    error("Error loading configuration file, more info: " . json_last_error_msg());
+    exit;
+  }
+  
   echo ' [ok]' . PHP_EOL;
   
 }else {
