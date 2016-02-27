@@ -38,6 +38,9 @@ class Source
   
   public function loadFromFiles(array $filePaths)
   {
+    
+    $this->data = '';
+    
     foreach ($filePaths as $filePath) {
       $this->data .= file_get_contents($filePath);
     }
