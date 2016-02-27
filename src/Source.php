@@ -18,7 +18,7 @@ class Source
   /**
   * @var string Path to the last file loaded
   */
-  public $filePath;
+  public $filePath = null;
   
   function __construct($loadOnce = true)
   {
@@ -33,7 +33,7 @@ class Source
 
   public function getData()
   {
-    if (!$this->loadOnce) {
+    if (!$this->loadOnce && $this->filePath) {
       $this->loadFromFile($this->filePath);
     }
     
