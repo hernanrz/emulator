@@ -10,6 +10,7 @@ function out($msg)
 /**
 * Display an error in the console
 */
-function error($msg) {
+function error($msg)
+{
   return out('[x] ' . $msg);
 }
