@@ -7,7 +7,7 @@ use DataStream\Configuration\Loader;
 require dirname(__DIR__) . '/vendor/autoload.php';
 require 'util.php';
 
-define('VERBOSE', true);
+define('VERBOSE', false);
 define('EMU_PATH', dirname(__DIR__));
 
 if('Linux' == PHP_OS) {
