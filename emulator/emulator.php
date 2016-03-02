@@ -8,7 +8,12 @@ require dirname(__DIR__) . '/vendor/autoload.php';
 require 'util.php';
 
 define('VERBOSE', false);
-define('EMU_PATH', dirname(__DIR__));
+
+if(\Phar::running()) {
+  define('EMU_PATH', dirname(\Phar::running(false)) . DIRECTORY_SEPARATOR);
+}else {
+  define('EMU_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
+}
 
 if('Linux' == PHP_OS) {
   echo "☉ ". "\033[34;34mE\033[0m" . "\033[33;33mm\033[0m" . "\033[1;31mu\033[0m";
@@ -27,7 +32,7 @@ if(count($argv) < 3) {
   exit;
 }
 
-$configFileName = __DIR__ . DIRECTORY_SEPARATOR . $argv[1];
+$configFileName = EMU_PATH . $argv[1];
 $port = $argv[2];
 
 echo '* Reading configuration file ' . basename($configFileName) . '...' . PHP_EOL;
