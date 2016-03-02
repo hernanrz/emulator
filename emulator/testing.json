@@ -1,6 +1,6 @@
 {
   "data": "yes",
   "sourceType": "file",
-  "dataLocation": ["tests\\testfile.txt", "emulator\\emulator.php"],
+  "dataLocation": ["tests\\testfile.txt"],
   "loadOnce": false
 }

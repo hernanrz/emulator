@@ -40,6 +40,7 @@ class Source
   {
     
     $this->data = '';
+    $this->filePaths = $filePaths;
     
     foreach ($filePaths as $filePath) {
       $this->data .= file_get_contents($filePath);
