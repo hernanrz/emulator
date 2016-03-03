@@ -39,14 +39,12 @@ abstract class Magic
 
       }else {
 
-        $this->$propertyName = $args[0];
-
-        return $this;
+        return $this->set($propertyName, $args[0]);
 
       }
 
     }else {
-      throw new BadMethodCallException("Unknown method '$name'", 1);
+      throw new \BadMethodCallException("Unknown method '$name'", 1);
     }
   }
   
