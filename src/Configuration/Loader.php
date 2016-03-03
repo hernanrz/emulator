@@ -45,7 +45,7 @@ class Loader
       }
       
       if(!$this->checkRequiredOptions($configuration)) {
-        throw new Exception("One or more required options are not present in the configuration provided: ". implode(', ', $this->missingOptions));
+        throw new \Exception("One or more required options are not present in the configuration provided: ". implode(', ', $this->missingOptions));
       }
       
       return $configuration;
@@ -57,12 +57,16 @@ class Loader
     */
     private function checkRequiredOptions(Configuration $configuration)
     {
+      
+      $missing = false;
+      
       foreach($this->requiredOptions as $optName) {
         if(null === $configuration->get($optName))  {
-          return false;
+          $this->missingOptions[] = $optName;
+          $missing = true;
         }
       }
       
-      return true;
+      return !$missing;
     }
 }
