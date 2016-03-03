@@ -2,6 +2,9 @@
 ===
 A server emulator written in PHP
 
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/hrn4n/emulator/master/LICENSE.txt)
+[![GitHub issues](https://img.shields.io/github/issues/hrn4n/emulator.svg?style=flat)](https://github.com/hrn4n/emulator/issues)
+
 Q: *A server what?*
 
 A: It reads a file and then listens on a port, **any** request made on that port will get the file's contents as the response, regardless of the request body (This part will be changed later on)
