@@ -17,12 +17,7 @@ class Configuration extends DefaultConfiguration
         return EMU_PATH . DIRECTORY_SEPARATOR . $path; 
       }, $dataLocation);
       
-      foreach($dataLocation as $location) {
-        
-        if(VERBOSE) {
-          out("Reading $location");
-        }
-        
+      foreach($dataLocation as $location) {        
         if(!file_exists($location)) {
           throw new \Exception('Could not find file ' . $location);
         }
@@ -30,11 +25,7 @@ class Configuration extends DefaultConfiguration
       
     }else {
       $dataLocation = EMU_PATH . DIRECTORY_SEPARATOR . $dataLocation;
-      
-      if(VERBOSE) {
-        out("Reading $dataLocation");
-      }
-      
+            
       if(!file_exists($dataLocation)) {
         throw new \Exception('Could not find file ' . $dataLocation);
       }
