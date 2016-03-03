@@ -1,5 +1,8 @@
 {
   "autoload": {
     "psr-4": { "DataStream\\Emulator\\" : "src/", "DataStream\\" : "src/" }
+  },
+  "scripts": {
+    "test": "phpunit --bootstrap=vendor/autoload.php tests"
   }
 }
