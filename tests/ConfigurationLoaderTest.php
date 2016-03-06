@@ -28,4 +28,11 @@ class ConfigurationLoaderTest extends PHPUnit_Framework_Testcase
 
     $loader->loadFromArray([]);
   }
+  
+  public function testLoadFromFile()
+  {
+    $loader = new Loader(dirname(__DIR__));
+    
+    $loader->loadFromFile(__DIR__ . "/testing.json");
+  }
 } 
