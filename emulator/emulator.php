@@ -37,7 +37,7 @@ $port = $argv[2];
 
 echo '* Reading configuration file ' . basename($configFileName) . '...' . PHP_EOL;
 
-$confLoader = new Loader();
+$confLoader = new Loader(EMU_PATH);
 
 try {
     $configuration = $confLoader->loadFromFile($configFileName);

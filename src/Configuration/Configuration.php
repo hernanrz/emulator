@@ -7,6 +7,17 @@ namespace DataStream\Configuration;
 */
 class Configuration extends DefaultConfiguration
 {
+  
+  /**
+  * @var string The directory in which every file is located
+  */
+  private $directory;
+  
+  function __construct($directory)
+  {
+    $this->directory = $directory . DIRECTORY_SEPARATOR;
+  }
+  
   /**
   * Checks if the dataLocation provided is valid (i.e. files exist)
   */
@@ -14,7 +25,7 @@ class Configuration extends DefaultConfiguration
   {
     if(is_array($dataLocation)) {
       $dataLocation = array_map(function($path) { 
-        return EMU_PATH . DIRECTORY_SEPARATOR . $path; 
+        return $this->directory . $path; 
       }, $dataLocation);
       
       foreach($dataLocation as $location) {        
@@ -24,7 +35,7 @@ class Configuration extends DefaultConfiguration
       }
       
     }else {
-      $dataLocation = EMU_PATH . DIRECTORY_SEPARATOR . $dataLocation;
+      $dataLocation = $this->directory . $dataLocation;
             
       if(!file_exists($dataLocation)) {
         throw new \Exception('Could not find file ' . $dataLocation);

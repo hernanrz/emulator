@@ -1,5 +1,6 @@
 {
   "data": "yes",
   "dataLocation": ["tests\\testfile.txt"],
-  "loadOnce": false
+  "loadOnce": false,
+  "sourceType": "file"
 }
